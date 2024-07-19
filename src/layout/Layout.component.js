@@ -6,7 +6,7 @@ import Home from "../modules/home/Home";
 import Article from "../modules/article/Article.component";
 import Navbar from "../modules/navbar/Navbar.component";
 import NotFound from "../modules/not-found/NotFound.component";
-import Error from "../modules/error-message/Error";
+import Error from "../modules/error-message/Error.component";
 
 /**
  * The Layout component defines the main routes for the application.
