@@ -6,6 +6,7 @@ import Home from "../modules/home/Home.component";
 import Article from "../modules/article/Article.component";
 import Navbar from "../modules/navbar/Navbar.component";
 import NotFound from "../modules/not-found/NotFound.component";
+import Error from "../modules/error-message/Error";
 /**
  * The Layout component defines the main routes for the application.
  * It uses React Router's Routes and Route components to specify the
@@ -17,6 +18,7 @@ function Layout() {
   return (
     <>
       <Navbar />
+      <Error/>
       <Routes>
         {/* Route for the home page */}
         <Route path="/" element={<Home />} />
@@ -24,7 +26,7 @@ function Layout() {
         {/* Route for the article detail page with a dynamic articleId parameter */}
         <Route path="/article/:articleId" element={<Article />} />
 
-        {/* Route for the article detail page with a dynamic articleId parameter */}
+        {/* Route for the not found component in case of incorrect url */}
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </>
