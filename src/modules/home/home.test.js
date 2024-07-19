@@ -61,8 +61,4 @@ describe("Home Component", () => {
       screen.getByRole("link", { name: /read more here/i })
     ).toHaveAttribute("href", "https://example.com");
   });
-
-
-
-
 });

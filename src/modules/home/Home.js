@@ -7,7 +7,6 @@ function Home() {
   const [period, setPeriod] = useState(PERIODS[0]);
   const { response, loading } = useFetchArticles(period);
 
-  console.log(response);
   const handlePeriodChange = (e) => {
     setPeriod(e.target.value);
   };

@@ -17,7 +17,6 @@ import Error from "../modules/error-message/Error.component";
  */
 
 function Layout() {
-
   return (
     <>
       <Navbar />
