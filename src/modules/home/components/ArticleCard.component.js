@@ -21,7 +21,7 @@ function ArticleCard({ data = defaultProps }) {
   };
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia sx={{ height: 140 }} image={imgUrl} title="green iguana" />
+      <CardMedia sx={{ height: 140 }} image={imgUrl} title="green iguana" onClick={handleReadMore}/>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
@@ -33,9 +33,9 @@ function ArticleCard({ data = defaultProps }) {
           {`updated: ${updated}`}
         </Typography>
       </CardContent>
-      <CardActions>
+      {/* <CardActions>
         <Button onClick={handleReadMore}>See details...</Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }
