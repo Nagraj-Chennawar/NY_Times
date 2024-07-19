@@ -26,6 +26,7 @@ function ArticleCard({ data = defaultProps }) {
         title="green iguana"
         onClick={handleReadMore}
       />
+
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
