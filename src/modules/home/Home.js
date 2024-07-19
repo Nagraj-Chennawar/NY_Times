@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import useFetchArticles from "./useFetchArticles.hook";
-import ArticleCard from "./components/ArticleCard.component";
+import ArticleCard from "./components/articleCard.component";
 import { Alert, Box, MenuItem, Select, Stack, Typography } from "@mui/material";
 import { PERIODS } from "../../constants";
 function Home() {
   const [period, setPeriod] = useState(PERIODS[0]);
-  const { response, loading, error } = useFetchArticles(period);
+  const { response, loading } = useFetchArticles(period);
 
   console.log(response);
   const handlePeriodChange = (e) => {
@@ -34,25 +34,29 @@ function Home() {
         {response?.data?.results &&
           response.data.results.map(
             ({ title, abstract, url, updated, media }) => {
-              const   placeholder = 'https://placehold.co/210x140';
+              const placeholder = "https://placehold.co/210x140";
               const meta = media[0];
-              const metaData =meta && meta['media-metadata'];
+              const metaData = meta && meta["media-metadata"];
               const ele = metaData && metaData[1];
-              const mediaUrl = ele && ele.url
+              const mediaUrl = ele && ele.url;
               return (
                 <ArticleCard
                   title={title}
                   abstract={abstract}
                   updated={updated}
                   articleUrl={url}
-                  imgUrl={mediaUrl?mediaUrl:placeholder}
+                  imgUrl={mediaUrl ? mediaUrl : placeholder}
                 />
               );
             }
           )}
-         {error && <Alert severity="error">Failed to load resources. please try again</Alert> }
+        {response.error && (
+          <Alert severity="error">
+            Failed to load resources. please try again
+          </Alert>
+        )}
       </Box>
-     </Box>
+    </Box>
   );
 }
 
