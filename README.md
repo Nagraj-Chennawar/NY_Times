@@ -12,6 +12,8 @@ You need to create .env.development.local file at top where package.json lives
 
 add below code in that file , please note that if dev server is running , it requires to restart the dev server 
 
+You can get your REACT_APP_API_KEY from [NY Times developer](https://developer.nytimes.com/get-started)
+
 ```j
 REACT_APP_NOT_SECRET_CODE=https://api.nytimes.com
 REACT_APP_API_KEY=YOUR_API_KEY_HERE
