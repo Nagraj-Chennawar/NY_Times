@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useFetchArticles from "./useFetchArticles.hook";
-import ArticleCard from "./components/articleCard.component";
+import ArticleCard from "./components/ArticleCard.component";
 import { Alert, Box, MenuItem, Select, Stack, Typography } from "@mui/material";
 import { PERIODS } from "../../constants";
 function Home() {

@@ -1,7 +1,7 @@
 
 # Getting Started
  1. **Clone this Repo**
- 2. **make sure you have latest node version**
+ 2. **Make sure you have latest node version**
  3. **In terminal navigate to project dir**
  4. **Run npm install**
  5. **Add required config see below**
@@ -19,7 +19,12 @@ REACT_APP_NOT_SECRET_CODE=https://api.nytimes.com
 REACT_APP_API_KEY=YOUR_API_KEY_HERE
 ```
 
-
+## Below factors are considered while writing front end code
+1. **Extensitibility**
+2. **Less prone to bug**
+3. **Design patterns**
+4. **UI Adaptive Responsiveness**
+5. **Accessibility**
 
 # Getting Started with Create React App
 
@@ -60,6 +65,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
 
 
