@@ -12,7 +12,7 @@ function useFetchArticles(period) {
   const { setError } = useContext(ErrorContext);
   const [loading, setLoading] = useState(false);
   // State to store fetched data
-  const [data, setData] = useState([]);
+  const [response, setResponse] = useState({});
 
   // Callback function to handle errors
   const errorCallback = () => {
@@ -25,14 +25,14 @@ function useFetchArticles(period) {
   const callApi = async () => {
     setLoading(true);
     // Fetch data from the API and update state
-    setData(await api.get(changePeriod(period)));
+    setResponse(await api.get(changePeriod(period)));
     setLoading(false);
   };
   // useEffect to fetch data on component mount
   useEffect(() => {
     callApi();
   }, [period]);
-  return { ...data, loading };
+  return { response, loading };
 }
 
 export default useFetchArticles;

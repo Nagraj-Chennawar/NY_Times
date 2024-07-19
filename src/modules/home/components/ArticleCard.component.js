@@ -23,7 +23,7 @@ function ArticleCard({ title, abstract, updated, imgUrl, articleUrl }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link to={articleUrl}>Read more here</Link>
+        <Link href={articleUrl}>Read more here</Link>
       </CardActions>
     </Card>
   );

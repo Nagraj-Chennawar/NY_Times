@@ -1,29 +1,58 @@
 import React, { useState } from "react";
 import useFetchArticles from "./useFetchArticles.hook";
 import ArticleCard from "./components/ArticleCard.component";
-import { MenuItem, Select, Stack, Typography } from "@mui/material";
+import { Alert, Box, MenuItem, Select, Stack, Typography } from "@mui/material";
 import { PERIODS } from "../../constants";
 function Home() {
   const [period, setPeriod] = useState(PERIODS[0]);
-  const { data, loading } = useFetchArticles(period);
+  const { response, loading, error } = useFetchArticles(period);
 
+  console.log(response);
   const handlePeriodChange = (e) => {
     setPeriod(e.target.value);
   };
   return (
-    <>
+    <Box p={2}>
       <Typography gutterBottom variant="h4" component="h1">
         New York Times Popular Articles
       </Typography>
-      <Stack direction="row">
+      <Stack direction="row" gap={2}>
+        <Typography variant="h5" component="p">
+          Filter By
+        </Typography>
         <Select value={period} onChange={handlePeriodChange} disabled={loading}>
           {PERIODS.map((ele) => {
-            return <MenuItem value={ele}>{`${ele} days`}</MenuItem>;
+            return (
+              <MenuItem key={`menuitem-${ele}`} value={ele}>{`${ele} ${
+                ele === 1 ? "day" : "days"
+              }`}</MenuItem>
+            );
           })}
         </Select>
       </Stack>
-      <ArticleCard />
-    </>
+      <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2} mt={2}>
+        {response?.data?.results &&
+          response.data.results.map(
+            ({ title, abstract, url, updated, media }) => {
+              const   placeholder = 'https://placehold.co/210x140';
+              const meta = media[0];
+              const metaData =meta && meta['media-metadata'];
+              const ele = metaData && metaData[1];
+              const mediaUrl = ele && ele.url
+              return (
+                <ArticleCard
+                  title={title}
+                  abstract={abstract}
+                  updated={updated}
+                  articleUrl={url}
+                  imgUrl={mediaUrl?mediaUrl:placeholder}
+                />
+              );
+            }
+          )}
+         {error && <Alert severity="error">Failed to load resources. please try again</Alert> }
+      </Box>
+     </Box>
   );
 }
 
