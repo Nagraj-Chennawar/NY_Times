@@ -31,24 +31,9 @@ function Home() {
       </Stack>
       <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2} mt={2}>
         {response?.data?.results &&
-          response.data.results.map(
-            ({ title, abstract, url, updated, media }) => {
-              const placeholder = "https://placehold.co/210x140";
-              const meta = media[0];
-              const metaData = meta && meta["media-metadata"];
-              const ele = metaData && metaData[1];
-              const mediaUrl = ele && ele.url;
-              return (
-                <ArticleCard
-                  title={title}
-                  abstract={abstract}
-                  updated={updated}
-                  articleUrl={url}
-                  imgUrl={mediaUrl ? mediaUrl : placeholder}
-                />
-              );
-            }
-          )}
+          response.data.results.map((ele) => {
+            return <ArticleCard data={ele} key={`key_${ele.id}`} />;
+          })}
         {response.error && (
           <Alert severity="error">
             Failed to load resources. please try again

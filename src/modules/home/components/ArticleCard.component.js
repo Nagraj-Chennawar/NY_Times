@@ -4,9 +4,21 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Link } from "@mui/material";
-
-function ArticleCard({ title, abstract, updated, imgUrl, articleUrl }) {
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+const defaultProps = {};
+function ArticleCard({ data = defaultProps }) {
+  const { title, media, abstract, updated } = data;
+  const placeholder = "https://placehold.co/210x140";
+  const meta = media[0];
+  const metaData = meta && meta["media-metadata"];
+  const ele = metaData && metaData[1];
+  const mediaUrl = ele && ele.url;
+  const imgUrl = mediaUrl || placeholder;
+  const navigate = useNavigate();
+  const handleReadMore = () => {
+    navigate("/article", { state: data });
+  };
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia sx={{ height: 140 }} image={imgUrl} title="green iguana" />
@@ -22,7 +34,7 @@ function ArticleCard({ title, abstract, updated, imgUrl, articleUrl }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link href={articleUrl}>Read more here</Link>
+        <Button onClick={handleReadMore}>See details...</Button>
       </CardActions>
     </Card>
   );
