@@ -6,8 +6,8 @@ import Typography from "@mui/material/Typography";
 import { MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 function Navbar() {
-    const navigate = useNavigate();
-    const handleHomeClick = () => navigate('/');
+  const navigate = useNavigate();
+  const handleHomeClick = () => navigate("/");
 
   return (
     <Box sx={{ flexGrow: 1 }}>

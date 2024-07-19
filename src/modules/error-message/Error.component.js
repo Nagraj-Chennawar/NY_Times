@@ -3,7 +3,7 @@ import Snackbar from "@mui/material/Snackbar";
 import { ErrorContext } from "../../context/ContextProvider";
 /**
  * This Error message can be triggered from any where in the
- * to trigger this generic message use Error context 
+ * to trigger this generic message use Error context
  * @returns {JSX.Element} - Snackbar component to display generic error message
  */
 function Error() {
