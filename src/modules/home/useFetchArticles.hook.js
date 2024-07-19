@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import ApiService from "../../services";
 import { ErrorContext } from "../../context/ContextProvider";
 import { changePeriod } from "../../utils";

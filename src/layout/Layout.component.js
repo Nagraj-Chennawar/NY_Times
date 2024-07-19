@@ -27,7 +27,7 @@ function Layout() {
           <Route path="/" element={<Home />} />
 
           {/* Route for the article detail page with a dynamic articleId parameter */}
-          <Route path="/article/:articleId" element={<Article />} />
+          <Route path="/article" element={<Article />} />
 
           {/* Route for the not found component in case of incorrect url */}
           <Route path="/*" element={<NotFound />} />
