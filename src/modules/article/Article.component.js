@@ -1,9 +1,9 @@
-import { Box, Button, Link, Stack, Typography } from "@mui/material";
+import { Box, Button, Link, Stack, Typography, Grid } from "@mui/material";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+
 /**
- * keeping this component as a placeholder for further enhancements
  * @returns {JSX.Element} Article component
  */
 function Article() {
@@ -19,6 +19,7 @@ function Article() {
   const handleBackClick = () => {
     navigate("/");
   };
+
   return (
     <>
       <Button
@@ -31,23 +32,49 @@ function Article() {
       </Button>
       <Box p={4}>
         <article>
-          <Typography variant="h2" component="h1">
+          <Typography
+            variant="h2"
+            component="h1"
+            sx={{ textAlign: "center", mb: 4 }}
+          >
             {title}
           </Typography>
-          <Box display="flex" justifyContent="center">
-            <img
-              style={{ width: "50%", height: "auto", marginTop: "2rem" }}
-              src={mediaUrl}
-            />
-          </Box>
-          <Stack mt={2} direction="column" gap={2}>
-            <Typography variant="body1" component="p">
+          <Grid container justifyContent="center">
+            <Grid item xs={12} sm={10} md={8} lg={6}>
+              {mediaUrl && (
+                <Box display="flex" justifyContent="center">
+                  <img
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      marginTop: "2rem",
+                      maxWidth: "600px",
+                    }}
+                    src={mediaUrl}
+                    alt="Article media"
+                  />
+                </Box>
+              )}
+            </Grid>
+          </Grid>
+          <Stack mt={4} direction="column" spacing={2} alignItems="center">
+            <Typography
+              variant="body1"
+              component="p"
+              sx={{ textAlign: "center", maxWidth: "800px" }}
+            >
               {abstract}
             </Typography>
-            <Typography variant="body1" component="p">
-              source: {source}
+            <Typography
+              variant="body1"
+              component="p"
+              sx={{ textAlign: "center", maxWidth: "800px" }}
+            >
+              Source: {source}
             </Typography>
-            <Link href={url}>Read more here</Link>
+            <Link href={url} sx={{ textAlign: "center", maxWidth: "800px" }}>
+              Read more here
+            </Link>
           </Stack>
         </article>
       </Box>
