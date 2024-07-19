@@ -22,8 +22,12 @@ const GlobalProvider = () => {
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+const production = <GlobalProvider />
+const development = <>
   <React.StrictMode>
     <GlobalProvider />
   </React.StrictMode>
-);
+</>
+
+// console.log(process.env.NODE_ENV === 'development')
+root.render(process.env.NODE_ENV === 'development' ? development : production );
