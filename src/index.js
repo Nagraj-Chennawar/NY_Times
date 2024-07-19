@@ -2,18 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@mui/material/styles";
 import { BrowserRouter } from "react-router-dom";
+import ContextProvider from "./context/ContextProvider";
 
 const GlobalProvider = () => {
   return (
     <ThemeProvider theme={createTheme()}>
       <BrowserRouter>
-        <CssBaseline />
-        <App />
+        <ContextProvider>
+          <CssBaseline />
+          <App />
+        </ContextProvider>
       </BrowserRouter>
     </ThemeProvider>
   );

@@ -1,5 +1,4 @@
-import Layout  from './layout/Layout.component';
-
+import Layout from "./layout/Layout.component";
 
 /**
  * The App component serves as the root component for the application.
@@ -10,9 +9,7 @@ import Layout  from './layout/Layout.component';
  * @returns {JSX.Element} The rendered App component
  */
 function App() {
-  return (
-      <Layout/>
-  );
+  return <Layout />;
 }
 
 export default App;

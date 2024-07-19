@@ -1,0 +1,1 @@
+export {axios_instace as default} from './instance';
