@@ -10,11 +10,12 @@ function Article() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const { title, media, abstract, source, url } = state || {};
-
+  const placeholder = "https://placehold.co/440x293";
   const meta = media && media[0];
   const metaData = meta && meta["media-metadata"];
   const ele = metaData && metaData[2];
   const mediaUrl = ele && ele.url;
+  const imgUrl = mediaUrl || placeholder;
 
   const handleBackClick = () => {
     navigate("/");
@@ -32,16 +33,12 @@ function Article() {
       </Button>
       <Box p={4}>
         <article>
-          <Typography
-            variant="h2"
-            component="h1"
-            sx={{ textAlign: "center", mb: 4 }}
-          >
+          <Typography variant="h2" component="h1" sx={{ mb: 4, width: "80%" }}>
             {title}
           </Typography>
           <Grid container justifyContent="center">
             <Grid item xs={12} sm={10} md={8} lg={6}>
-              {mediaUrl && (
+              {imgUrl && (
                 <Box display="flex" justifyContent="center">
                   <img
                     style={{
@@ -50,7 +47,7 @@ function Article() {
                       marginTop: "2rem",
                       maxWidth: "600px",
                     }}
-                    src={mediaUrl}
+                    src={imgUrl}
                     alt="Article media"
                   />
                 </Box>
@@ -61,7 +58,7 @@ function Article() {
             <Typography
               variant="body1"
               component="p"
-              sx={{ textAlign: "center", maxWidth: "800px" }}
+              sx={{ maxWidth: "800px" }}
             >
               {abstract}
             </Typography>
