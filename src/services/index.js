@@ -10,7 +10,7 @@ class ApiService {
   async get(url, params = {}) {
     try {
       const response = await this.api.get(url, { params });
-      console.log("response", response);
+      console.log("response new", response);
       return { error: null, data: response.data };
     } catch (error) {
       this.callBack();
