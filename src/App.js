@@ -9,6 +9,7 @@ import Layout from "./layout/Layout.component";
  * @returns {JSX.Element} The rendered App component
  */
 function App() {
+  console.log("app loaded successfully");
   return <Layout />;
 }
 
